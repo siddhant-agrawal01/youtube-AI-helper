@@ -5,6 +5,7 @@ import {
   ClerkProvider,
 } from '@clerk/nextjs'
 import Provider from "./provider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 
@@ -35,7 +36,14 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Provider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             {children}
+          </ThemeProvider>
 
           </Provider>
         </body>
